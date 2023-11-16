@@ -8,47 +8,56 @@ body {
   box-sizing: border-box;
 }
 
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  background-color:  #404eed;
-
+  background-color: #404eed;
 }
+
 .logo {
   cursor: pointer;
-  height: 100px;
+  height: 130px;
 }
 
-.nav__links {
+.nav-links {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
+  transition: max-height 0.3s ease;
 }
 
-.nav__links li {
-  padding: 0 20px;
+.nav-links li {
+  padding: 10px 20px;
 }
 
-.nav__links a, .cta {
+.nav-links a, .cta {
   font-weight: 500;
   color: #edf0f1;
   text-decoration: none;
 }
 
-.nav__links a:hover, .cta:hover {
+.nav-links a:hover, .cta:hover {
   text-decoration: underline;
 }
+
+
 
 .cta {
   padding: 9px 25px;
   background-color: white;
   color: black;
-  border: none;
   border-radius: 50px;
-  cursor: pointer;
 }
 
 .container {
@@ -66,14 +75,29 @@ header {
   background-color: #f6f6f6;
 }
 
-.left, .right {
+
+.left {
   flex: 1;
-  max-width: 600px;
+  max-width: 70%;
+}
+
+.right {
+  flex: 1;
+  max-width: 30%;
+}
+
+.right h3 {
+  font-size: 3em;
+  margin: 0;
 }
 
 .left img, .right img {
-  width: 100%;
+  width: 90%;
   height: auto;
+}
+
+#article-ready {
+  padding-bottom: 7em;
 }
 
 .center {
@@ -95,7 +119,6 @@ p {
   opacity: 0.8;
 }
 
-
 .hero-section {
   background-color: #404eed;
   color: white;
@@ -110,10 +133,14 @@ p {
 }
 
 .hero-content {
-  max-width:50%;
+  max-width: 80%;
   text-align: center;
   z-index: 2;
   position: relative;
+}
+
+.hero-content h1 {
+  font-size: 3em;
 }
 
 .hero-buttons {
@@ -123,22 +150,36 @@ p {
   margin-top: 20px;
 }
 
-.hero-buttons button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.download-button {
+.button-white {
   background-color: #fff;
-  color: #5865F2;
+  color: #000;
 }
 
-.open-button {
+.button-black {
   background-color: #000;
   color: #fff;
+}
+
+.button-purple {
+  background-color: #5865F2;
+  color: #fff;
+}
+
+.button-large {
+  border-radius: 28px;
+  font-size: 20px;
+  padding: 16px 32px;
+}
+
+.button-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 24px; 
+  height: 24px; 
+}
+
+.button-white:hover { 
+  color: #5865F2;
 }
 
 .image-center {
@@ -155,31 +196,17 @@ p {
   bottom: 0;
   height: auto;
   z-index: 1;
-  max-width: 50%
 }
 
 .image-left {
-  left: -29%;
-  max-width: 60%; /* Или нужный процент ширины в зависимости от размера экрана */
+  left: -32%;
+  max-width: 60%;
 }
 
 .image-right {
   right: -29%;
-  max-width: 60%; /* Или нужный процент ширины в зависимости от размера экрана */
+  max-width: 60%;
 }
-
-
-.download-button1 {
-  background-color: #fff;
-  color: #5865F2;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-/* Footer */
 
 .footer {
   padding: 100px 50px 20px 50px;
@@ -187,7 +214,7 @@ p {
   color: #fff;
 }
 
-.firstFooter {
+.first-footer {
   display: flex;
   justify-content: space-between;
   gap: 50px;
@@ -199,7 +226,7 @@ p {
 }
 
 .language-selector {
-  background-color: #23272A;;
+  background-color: #23272A;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -211,7 +238,7 @@ p {
 }
 
 .social-icon {
-  margin: 0 8px;
+  margin: 0 10px;
   display: inline-block;
   vertical-align: middle;
 }
@@ -224,13 +251,13 @@ p {
 .footer-columns {
   display: flex;
   justify-content: space-between;
-  gap: 70px
+  gap: 70px;
 }
 
 .footer-column h4 {
-   margin-bottom: 10px;
-   font-weight: 100;
-   color: #5865F2;
+  margin-bottom: 10px;
+  font-weight: 100;
+  color: #5865F2;
 }
 
 hr {
@@ -258,6 +285,7 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 2em;
 }
 
 .footer-policy-links a {
@@ -266,34 +294,19 @@ hr {
   margin: 0 10px;
 }
 
-
-
+/* Медиа-запросы */
 @media (max-width: 768px) {
-  .hero-content {
-      max-width: 90%;
+  .hero-content,
+  .container,
+  .left,
+  .right {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
   }
   
   .image-left, .image-right {
-      display: none; /* Изображения могут быть скрыты на маленьких устройствах, если они мешают */
+    display: none; 
   }
 
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav__links {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .container {
-    flex-direction: column;
-  }
-
-  .left, .right {
-    max-width: 100%;
-  }
 }
-
-
